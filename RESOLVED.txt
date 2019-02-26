@@ -1,0 +1,7 @@
+kill.cs.rutgers.edu 182.48.3.2 A
+mx.rutgers.com localhost - NS
+www.ibm.edu localhost - NS
+google.com localhost - NS
+www.google.com 8.6.4.2 A
+mx.rutgers.edu 192.64.4.2 A
+
