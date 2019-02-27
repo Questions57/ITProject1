@@ -39,7 +39,7 @@ conn, addr = ss.accept()
 
 
 print('Connected by', addr)
-queried_hostnames_str = conn.recv(1024)
+queried_hostnames_str = conn.recv(2048)
 queried_hostnames = queried_hostnames_str.split() #list of all hostnames being queried
 print('query: '+ str(queried_hostnames))
 
@@ -50,3 +50,6 @@ for query in queried_hostnames:
 
 print("SENDBACK: "+sendBack)
 conn.sendall(sendBack)
+
+ss.close()
+exit()

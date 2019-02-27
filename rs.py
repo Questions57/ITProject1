@@ -38,14 +38,14 @@ conn, addr = ss.accept()
 
 
 print('Connected by', addr)
-queried_hostnames_str = conn.recv(1024)
+queried_hostnames_str = conn.recv(2048)
 queried_hostnames = queried_hostnames_str.split() #list of all hostnames being queried
 print('query: '+ str(queried_hostnames))
 
 sendBack = ""
 for query in queried_hostnames:
 	query = query.lower()
-	sendBack += query + " " + DNSRS_table.get(query, "nbp-135-76.nbp.ruw.rutgers.edu - NS") + ","
+	sendBack += query + " " + DNSRS_table.get(query, "nbp-89-154.nbp.ruw.rutgers.edu - NS") + ","
 
 print("SENDBACK: "+sendBack)
 conn.sendall(sendBack)

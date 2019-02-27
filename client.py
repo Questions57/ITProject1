@@ -29,7 +29,7 @@ def processTSMessage(lines, ts_port):
 	tsSocket.connect(ts_binding) 
 
 	tsSocket.sendall(tsQueryString)
-	tsData = tsSocket.recv(1024)
+	tsData = tsSocket.recv(2048)
 	addresses = tsData.split(',')
 	return addresses
 
