@@ -26,6 +26,8 @@ def processTSMessage(lines, ts_port):
 	print("ADDRESS: "+ts_host_addr)
 
 	ts_binding = (ts_host_addr, int(ts_port))
+	print("TS BINDING: "+str(ts_binding))
+
 	tsSocket.connect(ts_binding) 
 
 	tsSocket.sendall(tsQueryString)

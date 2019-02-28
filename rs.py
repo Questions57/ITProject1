@@ -4,14 +4,17 @@ import sys
 
 DNSRS_table = {}
 file = open("PROJI-DNSRS.txt", "r")
-
+tsHostname = ""
 #looping through each line to fill table info
 for line in file: 
 	elems = line.split()
 	hostname = elems[0].lower()
 	value = elems[1]+" "+elems[2]
+	print("RS ROW:", str(elems))
+	if elems[2] == 'NS':
+		tsHostname = elems[0]
 	DNSRS_table[hostname] = value
-	
+	print("TS HOSTNAME IS", tsHostname)
 
 file.close() 
 #print(DNSRS_table)
@@ -45,7 +48,7 @@ print('query: '+ str(queried_hostnames))
 sendBack = ""
 for query in queried_hostnames:
 	query = query.lower()
-	sendBack += query + " " + DNSRS_table.get(query, "nbp-89-154.nbp.ruw.rutgers.edu - NS") + ","
+	sendBack += query + " " + DNSRS_table.get(query, tsHostname + " - NS") + ","
 
 print("SENDBACK: "+sendBack)
 conn.sendall(sendBack)
